@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="com.nina.model.ShopException"%>
 <%@page import="com.nina.dao.IUserDao"%>
 <%@page import="com.nina.dao.DAOFactory"%>
@@ -12,6 +13,8 @@
 </head>
 <body>
 <%
+	//response.setContentType("text/html; charset=utf-8");
+    //response.setCharacterEncoding("UTF-8");
 	String username = request.getParameter("username");
 	String password = request.getParameter("password");
 	String nickname = request.getParameter("nickname");
@@ -23,8 +26,13 @@
 	try{
 		userDao.add(user);
 		%>
-			添加用户成功!<a href="input.jsp">继续添加</a>
+			添加用户成功!<a href="input.jsp">继续添加</a>&nbsp;<a href="list.jsp">用户列表</a>
+			<br/>
 		<%
+		List<User> users = userDao.list();
+		for(User u : users){
+			out.print("用户名："+u.getUsername()+"--用户昵称："+u.getNickname()+"<br/>");
+		}
 	}catch(ShopException se){
 		%>
 			<h2 style="color:red">发生错误:<%=se.getMessage() %></h2>

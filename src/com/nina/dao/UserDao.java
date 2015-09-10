@@ -22,7 +22,11 @@ public class UserDao implements IUserDao {
 		try {
 			conn = DBUtil.getConnection();
 			ps = conn.prepareStatement("select count(*) from t_user where username=?");
-			ps.setString(1, user.getUsername());
+			String username = user.getUsername();
+			if(username==null || "".equals(username)){
+				throw new ShopException("添加的用户名不能为空！");
+			}
+			ps.setString(1, username);
 			rs = ps.executeQuery();
 			while(rs.next()){
 				if(rs.getInt(1)>0) {

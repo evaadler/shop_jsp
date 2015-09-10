@@ -10,7 +10,7 @@ public class DBUtil {
 	public static Connection getConnection(){
 		String username = "root";
 		String password = "123";
-		String url = "jdbc:mysql://localhost:3306/nina_shop";
+		String url = "jdbc:mysql://localhost:3306/nina_shop?useUnicode=true&characterEncoding=utf-8";
 		
 		Connection conn = null;
 		try {
