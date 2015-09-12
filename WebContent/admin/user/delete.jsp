@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="inc.jsp"></jsp:include>
 <%
 	
 	int userId = Integer.parseInt(request.getParameter("id"));

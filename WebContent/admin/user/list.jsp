@@ -10,8 +10,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>用户列表</title>
 </head>
-<body>
 
+<body>
+<jsp:include page="inc.jsp"></jsp:include>
 		<table border="1" width="800" align="center">
 		<thead>
 			<tr><th>ID</th><th>用户名</th><th>用户昵称</th><th>操作</th></tr>
@@ -24,7 +25,7 @@
 				//out.print("用户名："+u.getUsername()+"--用户昵称："+u.getNickname()+"<br/>");
 				request.setAttribute(u.getId()+"", u);
 				%>
-				<tr><td><%=u.getId() %></td><td><%=u.getUsername() %></td><td><%=u.getNickname() %></td><td><a href="delete.jsp?id=<%=u.getId()%>">删除</a><a href="input.jsp?user=<%=u.getId()%>">更新</a></td></tr>
+				<tr><td><%=u.getId() %></td><td><%=u.getUsername() %></td><td><%=u.getNickname() %></td><td><a href="delete.jsp?id=<%=u.getId()%>">删除</a>&nbsp;<a href="input.jsp?user=<%=u.getId()%>">更新</a></td></tr>
 			<% 
 			}
 			%>
