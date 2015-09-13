@@ -29,7 +29,7 @@ public class CharEncodingFilter implements Filter{
 
 	@Override
 	public void init(FilterConfig config) throws ServletException {
-		encoding = config.getInitParameter("Encoding");
+		encoding = config.getInitParameter("encoding");
 	}	
 
 }
